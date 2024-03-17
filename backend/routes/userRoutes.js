@@ -7,16 +7,16 @@ const  {getUser,
 const router = express.Router()
 
 //GET all workouts
-router.get('/', getUser)
+router.get('/', getUsers)
 
 // GET a single workout
-router.get('/:id', getUsers)
+router.get('/:id', getUser)
 
 //POST  a new workout
-router.post('/', createUser)
+router.post('/create', createUser)
 
-router.delete('/:id', deleteUser)
-router.patch('/:id', updateUser)
+router.delete('/delete/:id', deleteUser)
+router.patch('/update/:id', updateUser)
 
 
 module.exports = router

@@ -8,6 +8,8 @@ const bodyParser = require('body-parser')
 const app = express();
 
 db()
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.json())
 app.use('/api/', userRoutes); 
 
