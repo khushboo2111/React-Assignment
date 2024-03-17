@@ -1,15 +1,15 @@
 require('dotenv').config()
 const express = require('express')
 const db = require('./config/connectDb')
-const workoutRoutes = require('./routes/workouts');
+const userRoutes = require('./routes/userRoutes');
+const cors = require('cors')
 const { mongo } = require('mongoose');
-
+const bodyParser = require('body-parser')
 const app = express();
-
 
 db()
 app.use(express.json())
-app.use('/api/workout', workoutRoutes); 
+app.use('/api/', userRoutes); 
 
 
 

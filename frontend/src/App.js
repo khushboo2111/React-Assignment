@@ -1,21 +1,35 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Home from './pages/home'
-import Navbar from './components/Navbar';
+
+import * as React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import User from './components/getUser/User';
+import './components/getUser/user.css'
+import Add from "./components/addUser/Add";
+import Edit from "./components/updateUser/Edit";
+
 function App() {
+
+  const route = createBrowserRouter([
+ 
+    {
+      path : "/",
+      element : <User/>,
+    },
+    {
+        path : "/add",
+        element : <Add/>
+    },
+    {
+        path : "/edit",
+        element : <Edit/>,
+    },
+    
+  ])
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar/>
-        <div className="pages">
-          <Routes>
-            <Route path='/'
-            element = {<Home />}
-            />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
-  );
+<div> 
+ <RouterProvider router = {route} ></RouterProvider>
+</div>
+  )
 }
 
 export default App;

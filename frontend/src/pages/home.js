@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-
+//import WorkoutDetails from '../components/WorkoutDetails'
 const Home = () => {
 
     const [workouts, setWorkouts] = useState(null)
    useEffect( () => {
        const fetchWorkouts = async() => {
-       const response = await fetch('http://localhost:4000/api/workout')
+       const response = await fetch('/api/workouts')
        const json = await response.json()
 
        if(response.ok){
@@ -16,7 +16,12 @@ const Home = () => {
    }, [])
     return (
         <div className="home">
-            <h2>Home</h2>
+            <div className="workouts">
+                {workouts && workouts.map((workout) => {
+                    < p key = {workout._id} > {workout.title}</p>
+                
+             })}
+            </div>
         </div>
     )
 }
